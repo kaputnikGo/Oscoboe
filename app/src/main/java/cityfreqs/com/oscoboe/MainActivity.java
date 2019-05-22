@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int SEEKBAR_RANGE = 220; // convert seekbar numbers to hertz range 44
 
     private TextView frequencyText;
-    private double userFrequency;
+    private String freqUpdateText;
+    private int userFrequency;
 
 
     @Override
@@ -57,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 userFrequency = progress * FREQ_STEP;
-                frequencyText.setText("freq: " + String.valueOf(userFrequency));
+                freqUpdateText = "freq: " + String.valueOf(userFrequency);
+                frequencyText.setText(freqUpdateText);
+                // playback engine wants a double
                 PlaybackEngine.setFrequency(userFrequency);
                 //Log.w(TAG, "freq: " + userFrequency);
             }
