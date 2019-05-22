@@ -12,15 +12,13 @@ SoundGenerator::SoundGenerator(int32_t sampleRate, int32_t maxFrames, int32_t ch
         , mBuffer(std::make_unique<float[]>(maxFrames)){
 
     double frequency = 3700.0; // frequency default
-    //constexpr double interval = 110.0;
     constexpr float amplitude = 1.0;
 
-    // Set up the oscillators
+    // Set up the oscillators, (default 1=mono)
     for (int i = 0; i < mChannelCount; ++i) {
         mOscillators[i].setFrequency(frequency);
         mOscillators[i].setSampleRate(mSampleRate);
         mOscillators[i].setAmplitude(amplitude);
-        //frequency += interval;
     }
 }
 
@@ -28,7 +26,6 @@ void SoundGenerator::renderAudio(float *audioData, int32_t numFrames) {
 
     // Render each oscillator into its own channel
     for (int i = 0; i < mChannelCount; ++i) {
-
         mOscillators[i].renderAudio(mBuffer.get(), numFrames);
         for (int j = 0; j < numFrames; ++j) {
             audioData[(j*mChannelCount)+i] = mBuffer[j];

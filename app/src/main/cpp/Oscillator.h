@@ -45,17 +45,23 @@ public:
         mAmplitude = amplitude;
     };
 
+    // numFrames is NOT sampleRate, is bufferSize
+    // every nth iteration get a new drift freq (48k rate / driftSpeed ) (1~10 * 1000)
+    // numFrames ~ 100
+
+    // 1 frame size = sample size * channels,
+    // ie: a stereo frame of shorts samples is 32bits (16 * 2)
+    // and a buffer of 100 stereo frame of shorts is 400 bytes (4 * 100)
+
     // From IRenderableAudio
     void renderAudio(float *audioData, int32_t numFrames) override {
-
+        // main synth on switch
         if (mIsWaveOn){
             for (int i = 0; i < numFrames; ++i) {
-
+                // check for drift on
                 // sample[i] = Math.sin(driftFreq * 2 * Math.PI * i / sampleRate);
                 if (mDriftTestOn) {
-                    // numFrames is NOT sampleRate...
-                    // every nth iteration get a new drift freq (48k rate / driftSpeed ) (1~10 * 1000)
-                    if (i % 1000 == 0) {
+                    if (i == 100) {
                         //needs a carrier var
                         mFrequency = 18000 + (rand() % 2000);
                     }

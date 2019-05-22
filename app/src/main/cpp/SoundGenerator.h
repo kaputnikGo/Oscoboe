@@ -41,6 +41,7 @@ public:
 private:
     const int32_t mSampleRate;
     const int32_t mChannelCount;
+    //std::atomic<Oscillator> mOscar;
     const std::unique_ptr<Oscillator[]> mOscillators;
     const std::unique_ptr<float[]> mBuffer;
 };
