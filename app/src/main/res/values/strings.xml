@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Oscoboe</string>
+    <string name="init_status">Touch button to play audio</string>
+    <string name="userSynthButtonText">Play Synth</string>
+    <string name="driftTestButtonText">Drift Test</string>
+    <string name="frequencyText">freq: 3700.0</string>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/userInstructionView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="20dp"
+        android:lines="3"
+        android:text="@string/init_status"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin" />
+
+    <ToggleButton
+        android:id="@+id/userSynthButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/userSynthButtonText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/userInstructionView"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="192dp" />
+
+    <SeekBar
+        android:id="@+id/frequencySeekBar"
+        android:layout_width="351dp"
+        android:layout_height="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userSynthButton"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <TextView
+        android:id="@+id/frequencyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frequencySeekBar"
+        android:layout_centerHorizontal="true"
+        android:text="@string/frequencyText"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frequencySeekBar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="261dp" />
+
+    <ToggleButton
+        android:id="@+id/driftTestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/driftTestButtonText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frequencyText"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="192dp" />
+
+
+</android.support.constraint.ConstraintLayout>
