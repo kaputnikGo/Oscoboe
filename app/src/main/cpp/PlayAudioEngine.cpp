@@ -140,7 +140,11 @@ void PlayAudioEngine::setFrequency(double frequency) {
 }
 
 void PlayAudioEngine::runDriftTest(bool runDrift) {
-    mSoundGenerator->runDriftTest(runDrift);
+    mSoundGenerator->runDriftTest(runDrift, mFramesPerBurst);
+}
+
+int PlayAudioEngine::getBufferSizeSelection() {
+    return mFramesPerBurst;
 }
 
 /**

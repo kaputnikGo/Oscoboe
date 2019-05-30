@@ -2,6 +2,7 @@ package cityfreqs.com.oscoboe;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         // initialize native audio system
         PlaybackEngine.create(this);
 
+        Log.d(TAG, "Buffer numFramesBurst: " + PlaybackEngine.getBufferSizeSelection());
     }
 
     private void setUpUserSynthControls() {

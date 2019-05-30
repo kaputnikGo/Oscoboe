@@ -55,6 +55,11 @@ public class PlaybackEngine {
         if (mEngineHandle != 0) native_runDriftTest(mEngineHandle, runDrift);
     }
 
+    static int getBufferSizeSelection() {
+        if (mEngineHandle != 0) native_getBufferSizeSelection(mEngineHandle);
+        return native_getBufferSizeSelection(mEngineHandle);
+    }
+
     static void setAudioApi(int audioApi){
         if (mEngineHandle != 0) native_setAudioApi(mEngineHandle, audioApi);
     }
@@ -86,6 +91,7 @@ public class PlaybackEngine {
     private static native void native_setToneOn(long engineHandle, boolean isToneOn);
     private static native void native_setFrequency(long engineHandle, double frequency);
     private static native void native_runDriftTest(long engineHandle, boolean runDrift);
+    private static native int native_getBufferSizeSelection(long engineHandle);
     private static native void native_setAudioApi(long engineHandle, int audioApi);
     private static native void native_setAudioDeviceId(long engineHandle, int deviceId);
     private static native void native_setChannelCount(long mEngineHandle, int channelCount);

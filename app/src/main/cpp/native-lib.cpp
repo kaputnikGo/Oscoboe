@@ -81,6 +81,20 @@ extern "C" {
         engine->runDriftTest(runDrift);
     }
 
+    JNIEXPORT jint JNICALL
+    Java_cityfreqs_com_oscoboe_PlaybackEngine_native_1getBufferSizeSelection(
+            JNIEnv *env,
+            jclass,
+            jlong engineHandle) {
+
+        PlayAudioEngine *engine = reinterpret_cast<PlayAudioEngine*>(engineHandle);
+        if (engine == nullptr) {
+            LOGE("Engine is null, you must call createEngine before calling this method");
+            return static_cast<jint>(0);
+        }
+        return static_cast<jint>(engine->getBufferSizeSelection());
+    }
+
     JNIEXPORT void JNICALL
     Java_cityfreqs_com_oscoboe_PlaybackEngine_native_1setAudioApi(
             JNIEnv *env,

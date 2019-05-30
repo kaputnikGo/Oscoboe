@@ -32,7 +32,7 @@ public:
     // update the oscillator frequency
     void setFrequency(double frequency);
     // test random drift > 18kHz
-    void runDriftTest(bool runDrift);
+    void runDriftTest(bool runDrift, int32_t numFrames);
 
     // From IRenderableAudio
     void renderAudio(float *audioData, int32_t numFrames) override;

@@ -28,7 +28,7 @@ void SoundGenerator::renderAudio(float *audioData, int32_t numFrames) {
     for (int i = 0; i < mChannelCount; ++i) {
         mOscillators[i].renderAudio(mBuffer.get(), numFrames);
         for (int j = 0; j < numFrames; ++j) {
-            audioData[(j*mChannelCount)+i] = mBuffer[j];
+            audioData[(j * mChannelCount) + i] = mBuffer[j];
         }
     }
 }
@@ -45,8 +45,8 @@ void SoundGenerator::setFrequency(double frequency) {
     }
 }
 
-void SoundGenerator::runDriftTest(bool runDrift) {
+void SoundGenerator::runDriftTest(bool runDrift, int32_t numFrames) {
     for (int i = 0; i < mChannelCount; ++i) {
-        mOscillators[i].runDriftTest(runDrift);
+        mOscillators[i].runDriftTest(runDrift, numFrames);
     }
 }

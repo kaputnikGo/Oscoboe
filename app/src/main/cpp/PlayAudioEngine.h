@@ -32,6 +32,8 @@ public:
 
     void runDriftTest(bool runDrift);
 
+    int getBufferSizeSelection();
+
     void setBufferSizeInBursts(int32_t numBursts);
 
     double getCurrentOutputLatencyMillis();
