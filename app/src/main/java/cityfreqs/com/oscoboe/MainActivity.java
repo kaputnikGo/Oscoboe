@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "OSCOBOE";
 
     // 0hz - 22000hz: MIN 0, MAX = 22000
-    private static final int FREQ_STEP = 100; // hertz
-    private static final int DEFAULT_FREQ = 37; //3700
-    private static final int SEEKBAR_RANGE = 220; // convert seekbar numbers to hertz range 44
+    private static final int FREQ_STEP = 500;// 100; // hertz
+    private static final int DEFAULT_FREQ = 2; // 1000
+    private static final int SEEKBAR_RANGE = 44;// 220; // convert seekbar numbers to hertz range 44
 
     private TextView frequencyText;
     private String freqUpdateText;

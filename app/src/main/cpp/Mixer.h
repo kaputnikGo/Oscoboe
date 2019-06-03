@@ -33,7 +33,7 @@ public:
         }
     }
 
-    void addTrack(std::shared_ptr<IRenderableAudio> renderer){
+    void addTrack(IRenderableAudio *renderer){
         mTracks[mNextFreeTrackIndex++] = renderer;
     }
 
@@ -41,7 +41,8 @@ public:
 
 private:
     float mixingBuffer[kBufferSize];
-    std::array<std::shared_ptr<IRenderableAudio>, kMaxTracks> mTracks;
+    //std::array<std::shared_ptr<IRenderableAudio>, kMaxTracks> mTracks;
+    std::array<IRenderableAudio*, kMaxTracks> mTracks;
     uint8_t mNextFreeTrackIndex = 0;
     int32_t mChannelCount = 1; // Default to mono
 };
